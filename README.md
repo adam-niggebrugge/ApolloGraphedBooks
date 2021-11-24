@@ -56,6 +56,14 @@ Using a clone, then:
 npm install
 ```
 
+Developing from Initial Install Branch (assumes starting a terminal in the folder containing repository):
+```
+cd server
+
+npm install apollo-server-express
+
+```
+
 #### TODOs
 
 To complete the assignment, you’ll need to do the following:
