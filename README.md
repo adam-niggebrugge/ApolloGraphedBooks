@@ -62,6 +62,8 @@ cd server
 
 npm install apollo-server-express
 
+npm install graphql
+
 cd ..
 
 cd client

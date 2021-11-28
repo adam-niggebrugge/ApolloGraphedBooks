@@ -9,13 +9,22 @@ const { authMiddleware } = require('./utils/auth');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-const server =  new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: authMiddleware,
-});
+//Error with apollo-server, https://github.com/nestjs/graphql/issues/1621#issuecomment-878474079
+// solution from https://stackoverflow.com/questions/68354656/unhandledpromiserejectionwarning-error-you-must-await-server-start-before
+let server = null;
 
-server.applyMiddleware({ app });
+async function startServer() {
+  server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    context: authMiddleware,
+  });
+  await server.start();
+  server.applyMiddleware({ app });
+}
+
+startServer();
+
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
