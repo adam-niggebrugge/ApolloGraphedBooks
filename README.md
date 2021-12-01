@@ -35,6 +35,8 @@ This week, you’ll take starter code with a fully functioning Google Books API 
 
 Tracking of books to read.
 
+[Check Out Site](https://nai-book-search.herokuapp.com/)
+
 ### User Story
 
 ```
